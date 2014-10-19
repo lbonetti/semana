@@ -85,7 +85,6 @@ public class FrmPesquisa extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setMaximumSize(new java.awt.Dimension(1366, 768));
         setMinimumSize(new java.awt.Dimension(1366, 768));
-        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
