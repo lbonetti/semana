@@ -5,8 +5,8 @@ CREATE TABLE questionario (
 	id INT NOT NULL PRIMARY KEY, 
 	satisfeito BOOLEAN NOT NULL,
 	nota INT NOT NULL,
-	sugestao VARCHAR(255) NULL,
-	avaliacao VARCHAR(255) NULL,
+	sugestao TEXT NULL,
+	avaliacao TEXT NULL,
 	publicar BOOLEAN NOT NULL,
 	nome VARCHAR(60) NULL
 );
