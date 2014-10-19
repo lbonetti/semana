@@ -1,6 +1,9 @@
 package pesquisa;
 
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -402,15 +405,21 @@ public class FrmPesquisa extends javax.swing.JFrame {
     private void rbtPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtPublicarActionPerformed
         // TODO add your handling code here:
         nome = JOptionPane.showInputDialog("Informe seu nome para publicação:", "Anônimo");
-        nome.trim();
+        nome = nome.trim();
         lblNome.setText("Nome para publicação: " + nome);
         lblNome.setVisible(true);
     }//GEN-LAST:event_rbtPublicarActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
 
-        e.Verificar(rbtSatisfeito.isSelected(), Integer.parseInt(buttonGroup2.getSelection().getActionCommand()), txtSugestao.getText(), txtAvaliacao.getText(), rbtPublicar.isSelected(), nome);
+            e.Verificar(rbtSatisfeito.isSelected(), Integer.parseInt(buttonGroup2.getSelection().getActionCommand()), txtSugestao.getText(), txtAvaliacao.getText(), rbtPublicar.isSelected(), nome);
+        } catch (SQLException ex) {
+            Logger.getLogger(FrmPesquisa.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FrmPesquisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
