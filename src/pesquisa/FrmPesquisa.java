@@ -89,6 +89,7 @@ public class FrmPesquisa extends javax.swing.JFrame {
         rbt5.setActionCommand("5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisa de Satisfação");
         setLocationByPlatform(true);
         setMaximumSize(new java.awt.Dimension(1366, 768));
         setMinimumSize(new java.awt.Dimension(1366, 768));

@@ -30,7 +30,7 @@ public class Banco {
         try {
             conectar();
             String busca = "SELECT MAX(id) AS id FROM questionario"; //busca obter o último ID inserido e incrementar ele
-            String insert = "INSERT INTO questionario VALUES (?,?,?,?,?,?,?)"; //insert dos dados no banco
+            String insert = "INSERT INTO questionario VALUES (?,?,?,?,?,?,?,false)"; //insert dos dados no banco
             int nextID;
             
             try{

@@ -8,5 +8,6 @@ CREATE TABLE questionario (
 	sugestao TEXT NULL,
 	avaliacao TEXT NULL,
 	publicar BOOLEAN NOT NULL,
-	nome VARCHAR(60) NULL
+	nome VARCHAR(60) NULL,
+	publicado BOOLEAN NULL
 );

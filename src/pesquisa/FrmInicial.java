@@ -1,5 +1,7 @@
 package pesquisa;
 
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -35,8 +37,10 @@ public class FrmInicial extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btnSobre = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pesquisa de Satisfação");
         setMaximumSize(new java.awt.Dimension(1366, 768));
         setMinimumSize(new java.awt.Dimension(1366, 768));
         setPreferredSize(new java.awt.Dimension(1366, 768));
@@ -68,8 +72,17 @@ public class FrmInicial extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 640, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel5.setText("Sua opinião é muito importante para nós");
+        jLabel5.setText("Sua opinião é muito importante para nós!");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
+
+        btnSobre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSobre.setText("Sobre...");
+        btnSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSobreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSobre, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 660, 100, 40));
 
         pack();
         setLocationRelativeTo(null);
@@ -81,6 +94,12 @@ public class FrmInicial extends javax.swing.JFrame {
         frm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnParticiparActionPerformed
+
+    private void btnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Software desenvovido por Anderson A. de Castro, Lucas Bonetti e Vitor Ciudim Fermino.\n"+
+                "Professor orientador: Rolando. \n\n 4º Semestre Análise e Desenvolvimento de Sistemas - 2014.","Sobre",1);
+    }//GEN-LAST:event_btnSobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,6 +138,7 @@ public class FrmInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnParticipar;
+    private javax.swing.JButton btnSobre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
