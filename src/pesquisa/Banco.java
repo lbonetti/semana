@@ -25,7 +25,8 @@ public class Banco {
         connection.close();
     }
 
-    public void insert(boolean satisfeito, int nota, String sugestao, String avaliacao, boolean publicar, String nome) throws SQLException, ClassNotFoundException {
+    public boolean insert(boolean satisfeito, int nota, String sugestao, String avaliacao, boolean publicar, String nome) throws SQLException, ClassNotFoundException {
+        boolean status=true;
         try {
             conectar();
             String busca = "SELECT MAX(id) AS id FROM questionario"; //busca obter o último ID inserido e incrementar ele
@@ -41,8 +42,8 @@ public class Banco {
                 nextID = rs.getInt("id") + 1;
                 
                 stinsert.setInt(1, nextID);
-                stinsert.setInt(2, nota);
-                stinsert.setBoolean(3, satisfeito);
+                stinsert.setBoolean(2, satisfeito);
+                stinsert.setInt(3, nota);
                 stinsert.setString(4, sugestao);
                 stinsert.setString(5, avaliacao);
                 stinsert.setBoolean(6, publicar);
@@ -52,17 +53,20 @@ public class Banco {
                 stinsert.close();
                 stbusca.close();
                 
-                JOptionPane.showMessageDialog(null, "Inclusão efetuada com sucesso!");
+                JOptionPane.showMessageDialog(null, "Obrigado por participar! Sua opinião é muito importante para nós.");
             }
             catch(SQLException e) {
                 JOptionPane.showMessageDialog(null, "Ocorreu o seguinte erro ao inserir os dados no banco: " + e);
+                status=false;
             }
         } 
         catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Ocorreu o seguinte erro ao conectar com banco: " + e);
+            status=false;
         }
         finally{
             desconectar();
+            return status;
         }
       
     }

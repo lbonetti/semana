@@ -18,7 +18,8 @@ public class Estrutura {
     
     Banco bd = new Banco();
     
-    public void Verificar(boolean satisfeito, int nota, String sugestao, String avaliacao, boolean publicar, String nome) throws SQLException, ClassNotFoundException{
+    public boolean Verificar(boolean satisfeito, int nota, String sugestao, String avaliacao, boolean publicar, String nome) throws SQLException, ClassNotFoundException{
+        boolean status=false;
         sugestao.trim();
         avaliacao.trim();
         if (sugestao.length()>500)
@@ -30,7 +31,9 @@ public class Estrutura {
                 if((publicar && nome.length()>60) || (publicar && nome.equals("")))
                         JOptionPane.showMessageDialog(null, "Nome inválido");
                 else
-                    bd.insert(satisfeito, nota, sugestao, avaliacao, publicar, nome);
+                    if(bd.insert(satisfeito, nota, sugestao, avaliacao, publicar, nome)==true)
+                        status=true;               
+        return status;
     }
     
 }
