@@ -403,17 +403,22 @@ public class FrmPesquisa extends javax.swing.JFrame {
 
     private void rbtPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtPublicarActionPerformed
         // TODO add your handling code here:
-        nome = JOptionPane.showInputDialog("Informe seu nome para publicação:", "Anônimo");
+        nome = JOptionPane.showInputDialog("Informe seu nome para publicação:", "Anônimo"); 
+        if(nome == null){
+            rbtNaoPublicar.setSelected(true);
+        }
+        else{
         nome = nome.trim();
         lblNome.setText("Nome para publicação: " + nome);
         lblNome.setVisible(true);
+        }
     }//GEN-LAST:event_rbtPublicarActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         try {
             // TODO add your handling code here:
-
-            e.Verificar(rbtSatisfeito.isSelected(), Integer.parseInt(buttonGroup2.getSelection().getActionCommand()), txtSugestao.getText(), txtAvaliacao.getText(), rbtPublicar.isSelected(), nome);
+            if(e.Verificar(rbtSatisfeito.isSelected(), Integer.parseInt(buttonGroup2.getSelection().getActionCommand()), txtSugestao.getText(), txtAvaliacao.getText(), rbtPublicar.isSelected(), nome));
+                dispose();
         } catch (SQLException ex) {
             Logger.getLogger(FrmPesquisa.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
