@@ -1,6 +1,5 @@
 package pesquisa;
 
-
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,7 +10,6 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Aluno
@@ -23,12 +21,13 @@ public class FrmPesquisa extends javax.swing.JFrame {
      */
     public FrmPesquisa() {
         initComponents();
-        this.setExtendedState(this.MAXIMIZED_BOTH);
+        this.setExtendedState(FrmPesquisa.MAXIMIZED_BOTH);
         lblNome.setVisible(false);
     }
-    
+
     Estrutura e = new Estrutura();
     String nome;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,8 +40,6 @@ public class FrmPesquisa extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtSugestao1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -76,10 +73,6 @@ public class FrmPesquisa extends javax.swing.JFrame {
         rbt4.setActionCommand("4");
         rbt5 = new javax.swing.JRadioButton();
         rbt5.setActionCommand("5");
-
-        txtSugestao1.setColumns(20);
-        txtSugestao1.setRows(5);
-        jScrollPane2.setViewportView(txtSugestao1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -403,22 +396,22 @@ public class FrmPesquisa extends javax.swing.JFrame {
 
     private void rbtPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtPublicarActionPerformed
         // TODO add your handling code here:
-        nome = JOptionPane.showInputDialog("Informe seu nome para publicação:", "Anônimo"); 
-        if(nome == null){
+        nome = JOptionPane.showInputDialog("Informe seu nome para publicação:", "Anônimo");
+        if (nome == null) {
             rbtNaoPublicar.setSelected(true);
-        }
-        else{
-        nome = nome.trim();
-        lblNome.setText("Nome para publicação: " + nome);
-        lblNome.setVisible(true);
+        } else {
+            nome = nome.trim();
+            lblNome.setText("Nome para publicação: " + nome);
+            lblNome.setVisible(true);
         }
     }//GEN-LAST:event_rbtPublicarActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         try {
             // TODO add your handling code here:
-            if(e.Verificar(rbtSatisfeito.isSelected(), Integer.parseInt(buttonGroup2.getSelection().getActionCommand()), txtSugestao.getText(), txtAvaliacao.getText(), rbtPublicar.isSelected(), nome));
+            if (e.Verificar(rbtSatisfeito.isSelected(), Integer.parseInt(buttonGroup2.getSelection().getActionCommand()), txtSugestao.getText(), txtAvaliacao.getText(), rbtPublicar.isSelected(), nome)) {
                 dispose();
+            }
         } catch (SQLException ex) {
             Logger.getLogger(FrmPesquisa.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -478,7 +471,6 @@ public class FrmPesquisa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblNome;
     private javax.swing.JRadioButton rbt0;
@@ -493,6 +485,5 @@ public class FrmPesquisa extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtSatisfeito;
     private javax.swing.JTextArea txtAvaliacao;
     private javax.swing.JTextArea txtSugestao;
-    private javax.swing.JTextArea txtSugestao1;
     // End of variables declaration//GEN-END:variables
 }

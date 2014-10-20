@@ -20,13 +20,13 @@ public class Estrutura {
     
     public boolean Verificar(boolean satisfeito, int nota, String sugestao, String avaliacao, boolean publicar, String nome) throws SQLException, ClassNotFoundException{
         boolean status=false;
-        sugestao.trim();
-        avaliacao.trim();
+        sugestao = sugestao.trim();
+        avaliacao = avaliacao.trim();
         if (sugestao.length()>500)
-            JOptionPane.showMessageDialog(null, "O campo sugestão aceita no máximo 250 caracteres.");
+            JOptionPane.showMessageDialog(null, "O campo sugestão aceita no máximo 500 caracteres.");
         else
             if (avaliacao.length()>500)
-                JOptionPane.showMessageDialog(null, "O campo avaliação aceita no máximo 250 caracteres.");
+                JOptionPane.showMessageDialog(null, "O campo avaliação aceita no máximo 500 caracteres.");
             else
                 if((publicar && nome.length()>60) || (publicar && nome.equals("")))
                         JOptionPane.showMessageDialog(null, "Nome inválido");
