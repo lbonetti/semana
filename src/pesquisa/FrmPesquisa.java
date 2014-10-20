@@ -1,6 +1,8 @@
 package pesquisa;
 
 import java.sql.SQLException;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,6 +25,18 @@ public class FrmPesquisa extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(FrmPesquisa.MAXIMIZED_BOTH);
         lblNome.setVisible(false);
+        //int tempo = (1000 * 60) * 2;   // 5 min.  
+        int tempo = 150000;   // 2 min 30 seg.  
+        int periodo = 1;  // quantidade de vezes a ser executado.  
+        Timer timer = new Timer();
+
+        timer.scheduleAtFixedRate(
+                new TimerTask() {
+                    public void run() {
+                        this.cancel();
+                        dispose();                        
+                    }
+                }, tempo, periodo);
     }
 
     Estrutura e = new Estrutura();
