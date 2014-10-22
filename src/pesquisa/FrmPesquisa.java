@@ -24,9 +24,8 @@ public class FrmPesquisa extends javax.swing.JFrame {
     public FrmPesquisa() {
         initComponents();
         this.setExtendedState(FrmPesquisa.MAXIMIZED_BOTH);
-        lblNome.setVisible(false);
-        //int tempo = (1000 * 60) * 2;   // 5 min.  
-        int tempo = 150000;   // 2 min 30 seg.  
+        lblNome.setVisible(false);  
+        int tempo = 300000;   // 5 min.  
         int periodo = 1;  // quantidade de vezes a ser executado.  
         Timer timer = new Timer();
 
@@ -190,7 +189,7 @@ public class FrmPesquisa extends javax.swing.JFrame {
         jScrollPane3.setViewportView(txtAvaliacao);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("Gostaria de publicar essa avaliação?");
+        jLabel6.setText("Gostaria de publicar essa avaliação na TV?");
 
         buttonGroup3.add(rbtNaoPublicar);
         rbtNaoPublicar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -232,11 +231,11 @@ public class FrmPesquisa extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(22, 22, 22)
                                 .addComponent(rbtNaoPublicar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(rbtPublicar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(lblNome)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -258,6 +257,7 @@ public class FrmPesquisa extends javax.swing.JFrame {
         );
 
         btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pesquisa/cancel.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,6 +266,7 @@ public class FrmPesquisa extends javax.swing.JFrame {
         });
 
         btnConfirmar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pesquisa/accepted.png"))); // NOI18N
         btnConfirmar.setText("Confirmar");
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,10 +346,6 @@ public class FrmPesquisa extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(471, 471, 471))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -360,15 +357,20 @@ public class FrmPesquisa extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnConfirmar)
+                        .addGap(409, 409, 409)
                         .addComponent(btnCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnConfirmar)))
+                        .addGap(9, 9, 9)))
                 .addGap(20, 20, 20))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(471, 471, 471))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(24, 24, 24)
@@ -379,11 +381,11 @@ public class FrmPesquisa extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConfirmar)
                     .addComponent(btnCancelar))
-                .addGap(96, 96, 96))
+                .addGap(89, 89, 89))
         );
 
         pack();
